@@ -37,3 +37,32 @@ The robot did not move despite:
 
 ### Root Cause Analysis
 Observed initialization log from myBlockly:
+
+## 2026-03-03
+
+### Environment
+- myCobot 280 Raspberry Pi version  
+- Linux (MATE Desktop Environment)  
+- Python 3  
+- pymycobot library  
+
+### Today's Objective
+Improve code structure by introducing parameterized functions and loop-based motion control.
+
+### Implementation
+
+#### 1. Parameterized Motion Functions
+
+Refactored motion control into reusable functions:
+
+- Implemented `home(speed)`
+- Implemented `pose1(speed)`
+
+Speed is now passed as an argument instead of being hardcoded.
+
+Example:
+
+```python
+def home(speed):
+    mc.send_angles([0, 0, 0, 0, 0, 0], speed)
+    time.sleep(3)
